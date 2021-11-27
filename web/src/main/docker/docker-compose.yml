@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  eshop_application:
+    image: 'eshop-spring-boot:latest'
+    ports:
+      - "9124:9123"
+    build:
+      context: .
+    container_name: eshop_springboot
+    depends_on:
+      - pg_database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://pg_database:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  pg_database:
+    image: 'postgres:13.1-alpine'
+    container_name: pg_database
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres

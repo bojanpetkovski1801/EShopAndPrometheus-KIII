@@ -1,0 +1,3 @@
+ngrok.exe
+kubeconfig
+./helm-charts/helm.exe
