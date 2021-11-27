@@ -48,7 +48,7 @@ jobs:
      - name: Helm upgrade or install
        uses: WyriHaximus/github-action-helm3@v2
        with:
-         exec: helm upgrade --install eshop-spring-boot ./helm-charts/eshop-application
+         exec: ./helm upgrade --install eshop-spring-boot ./helm-charts/eshop-application
          kubeconfig: '${{ secrets.KUBECONFIG }}'
 
 
@@ -75,6 +75,6 @@ jobs:
        uses: WyriHaximus/github-action-helm3@v2
        with:
          exec: |
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm upgrade --install prometheus bitnami/kube-prometheus
+          ./helm repo add bitnami https://charts.bitnami.com/bitnami
+          ./helm upgrade --install prometheus bitnami/kube-prometheus
          kubeconfig: '${{ secrets.KUBECONFIG }}'
