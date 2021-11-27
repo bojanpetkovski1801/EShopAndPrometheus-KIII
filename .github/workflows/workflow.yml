@@ -48,7 +48,7 @@ jobs:
      - name: Helm upgrade or install
        uses: WyriHaximus/github-action-helm3@v2
        with:
-         exec: ./helm.exe upgrade --install eshop-spring-boot ./helm-charts/eshop-application
+         exec: helm upgrade --install eshop-spring-boot ./helm-charts/eshop-application
          kubeconfig: '${{ secrets.KUBECONFIG }}'
 
 
