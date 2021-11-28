@@ -41,7 +41,7 @@ jobs:
   eshop-helm-kubernetes:
    name: Helm release update for the e-shop app
    runs-on: ubuntu-latest
-   needs: [eshop-spring-boot, pg-database-kubernetes, prometheus-kubernetes]
+   needs: [eshop-spring-boot, pg-database-kubernetes]
  
    steps:
      - uses: actions/checkout@v2
@@ -68,6 +68,7 @@ jobs:
   prometheus-kubernetes:
    name: Helm release update for Prometheus
    runs-on: ubuntu-latest
+   needs: [eshop-helm-kubernetes]
  
    steps:
      - uses: actions/checkout@v2
