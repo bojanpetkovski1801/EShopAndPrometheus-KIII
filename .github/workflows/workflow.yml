@@ -68,6 +68,7 @@ jobs:
   prometheus-kubernetes:
    name: Helm release update for Prometheus
    runs-on: ubuntu-latest
+   needs: [eshop-helm-kubernetes]
  
    steps:
      - uses: actions/checkout@v2
