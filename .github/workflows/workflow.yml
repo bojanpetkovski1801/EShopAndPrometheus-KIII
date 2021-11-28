@@ -55,7 +55,6 @@ jobs:
   pg-database-kubernetes:
    name: Pod update for the PGDB
    runs-on: ubuntu-latest
-   needs: [eshop-helm-kubernetes]
  
    steps:
      - uses: actions/checkout@v2
